@@ -9,17 +9,18 @@
         <v-list-subheader>Menus</v-list-subheader>
         <v-divider></v-divider>
         <v-list density="compact">
-          <!--01958135303-->
           <v-list-item
             v-for="(item, i) in items"
             :key="i"
             :value="item"
             active-color="primary"
           >
-            <template v-slot:prepend>
-              <v-icon :icon="item.icon"></v-icon>
-            </template>
-            <v-list-item-title>{{item.title}}</v-list-item-title>
+            <router-link :to=item.link>
+              <template v-slot:prepend>
+                <v-icon :icon="item.icon"></v-icon>
+              </template>
+              <v-list-item-title>{{item.title}}</v-list-item-title>
+            </router-link>
           </v-list-item>
         </v-list>
       </v-list>
@@ -37,9 +38,9 @@ export default {
     drawer: false,
     group: true,
     items: [
-      {title: 'Dashboard', icon: 'mdi-view-dashboard'},
-      {title: 'Account', icon: 'mdi-account-box'},
-      {title: 'Settings', icon: 'mdi-cog'},
+      {title: 'Dashboard', icon: 'mdi-view-dashboard', link: '/'},
+      {title: 'Projects', icon: 'mdi-account-box', link: '/projects'},
+      {title: 'Settings', icon: 'mdi-cog', link: '/'},
     ],
   }),
 };

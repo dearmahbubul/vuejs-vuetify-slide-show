@@ -1,7 +1,7 @@
 <template>
-  <Projects />
+  <Home />
 </template>
 
 <script setup>
-  import Projects from '@/components/Projects.vue'
+  import Home from '@/components/Home.vue'
 </script>
