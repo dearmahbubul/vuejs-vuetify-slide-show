@@ -36,6 +36,14 @@ export default defineConfig({
     ],
   },
   server: {
+    proxy: {
+      "/lang/api": {
+        target: "https://ite2200.puggins.net",
+        changeOrigin: true,
+        secure: false,
+        // ws: true,
+      },
+    },
     port: 3000,
   },
 })

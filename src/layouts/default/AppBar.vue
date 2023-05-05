@@ -14,13 +14,14 @@
             :key="i"
             :value="item"
             active-color="primary"
+            :to="item.link"
+            exact
+            link
           >
-            <router-link :to=item.link>
               <template v-slot:prepend>
                 <v-icon :icon="item.icon"></v-icon>
               </template>
               <v-list-item-title>{{item.title}}</v-list-item-title>
-            </router-link>
           </v-list-item>
         </v-list>
       </v-list>
@@ -40,7 +41,7 @@ export default {
     items: [
       {title: 'Dashboard', icon: 'mdi-view-dashboard', link: '/'},
       {title: 'Projects', icon: 'mdi-account-box', link: '/projects'},
-      {title: 'Settings', icon: 'mdi-cog', link: '/'},
+      // {title: 'Settings', icon: 'mdi-cog', link: '/'},
     ],
   }),
 };

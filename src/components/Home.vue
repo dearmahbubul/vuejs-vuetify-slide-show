@@ -7,7 +7,7 @@
           cols="12"
           md="6"
         >
-          <router-link to="/projects">
+          <router-link to="/projects" class="text-decoration-none">
             <v-item>
               <v-card
                 class='d-flex align-center'
@@ -17,7 +17,7 @@
                 <div
                   class="text-h3 flex-grow-1 text-center"
                 >
-                  Projects
+                  <h4>Projects</h4>
                 </div>
               </v-card>
             </v-item>
@@ -28,7 +28,7 @@
           cols="12"
           md="6"
         >
-          <router-link to="/projects">
+          <router-link to="/projects" class="text-decoration-none">
             <v-item>
               <v-card
                 class='d-flex align-center'
@@ -38,7 +38,7 @@
                 <div
                   class="text-h3 flex-grow-1 text-center"
                 >
-                  Facebook
+                  <h4>Facebook</h4>
                 </div>
               </v-card>
             </v-item>

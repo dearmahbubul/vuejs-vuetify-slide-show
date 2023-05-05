@@ -213,7 +213,8 @@ export default {
 
       this.loading = true;
       await axios
-        .get("http://jsonplaceholder.typicode.com/posts")
+        // .get("http://jsonplaceholder.typicode.com/posts")
+        .get(`lang/api/v1/projects`)
         // .get(`${baseUrl}/projects`)
         .then(response => {
           this.desserts = response.data
