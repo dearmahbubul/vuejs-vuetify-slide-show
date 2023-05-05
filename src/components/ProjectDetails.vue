@@ -5,7 +5,7 @@
 <script>
 
 import axios from "axios";
-const baseUrl = "https://ite2200.puggins.net/lang/api/v1";
+const baseUrl = "lang/api/v1";
 export default {
   data: () => ({
     searchItem: "",

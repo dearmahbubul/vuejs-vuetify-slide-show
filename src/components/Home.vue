@@ -11,7 +11,7 @@
             <v-item>
               <v-card
                 class='d-flex align-center'
-                dark
+                color="lime"
                 height="200"
               >
                 <div
@@ -32,7 +32,7 @@
             <v-item>
               <v-card
                 class='d-flex align-center'
-                dark
+                color="primary"
                 height="200"
               >
                 <div

@@ -3,8 +3,11 @@
     :headers="headers"
     :items="desserts"
     :search="searchItem"
+    :loading="loading"
+    loading-text="Loading... Please wait"
     :sort-by="[{ key: 'name', order: 'asc' }]"
     class="elevation-1"
+    item-value="name"
   >
     <template v-slot:top>
       <v-toolbar
@@ -102,6 +105,7 @@
                   color="blue-darken-1"
                   variant="text"
                   type="submit"
+                  :disabled="loading"
                 >
                   Save
                 </v-btn>
@@ -123,14 +127,15 @@
       </v-toolbar>
     </template>
     <template v-slot:item.actions="{ item }">
-      <v-icon
-        size="small"
-        class="me-2"
-        color="primary"
-        @click="editItem(item.raw)"
-      >
-        mdi-eye
-      </v-icon>
+      <router-link :to="'/projects/' + item.raw.id">
+        <v-icon
+          size="small"
+          class="me-2"
+          color="primary"
+        >
+          mdi-eye
+        </v-icon>
+      </router-link>
       <v-icon
         size="small"
         class="me-2"
@@ -163,7 +168,7 @@
 <script>
 
 import axios from "axios";
-const baseUrl = "https://ite2200.puggins.net/lang/api/v1";
+const baseUrl = "lang/api/v1";
 export default {
   data: () => ({
     searchItem: "",
@@ -214,7 +219,7 @@ export default {
       this.loading = true;
       await axios
         // .get("http://jsonplaceholder.typicode.com/posts")
-        .get(`lang/api/v1/projects`)
+        .get(`${baseUrl}/projects`)
         // .get(`${baseUrl}/projects`)
         .then(response => {
           this.desserts = response.data
@@ -243,10 +248,9 @@ export default {
 
     async deleteItemConfirm() {
       this.loading = true;
-      const actionUrl = this.editedIndex > -1 ? `${baseUrl}/projects/${this.desserts[this.editedIndex].id}` : `${baseUrl}/projects`;
 
       await axios
-        .delete(actionUrl, this.editedItem)
+        .delete(`${baseUrl}/projects/${this.desserts[this.editedIndex].id}`, this.editedItem)
         .then(response => {
           const responseData = response.data;
           console.log(responseData);
@@ -286,7 +290,7 @@ export default {
 
       if(this.editedIndex > -1) {
         await axios
-          .put(`${baseUrl}/projects/${this.desserts[this.editedIndex].id}`, this.editedItem)
+          .patch(`${baseUrl}/projects/${this.desserts[this.editedIndex].id}`, this.editedItem)
           .then(response => {
             const responseData = response.data;
             console.log(responseData);
