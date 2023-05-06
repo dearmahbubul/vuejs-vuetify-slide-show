@@ -124,14 +124,14 @@
             mdi-eye
           </v-icon>
         </router-link>
-        <v-icon
+<!--        <v-icon
           size="small"
           class="me-2"
           color="primary"
           @click="editItem(item.raw)"
         >
           mdi-pencil
-        </v-icon>
+        </v-icon>-->
         <v-icon
           size="small"
           color="error"
