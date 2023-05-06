@@ -1,7 +1,19 @@
 <template>
   <v-item-group selected-class="bg-primary">
     <v-container>
-      <v-row>
+      <v-row v-if="renderLoading">
+        <v-col
+          cols="12"
+          md="6"
+          v-for="n in 2" :key="n">
+          <v-skeleton-loader
+            class="mx-auto"
+            elevation="12"
+            type="image"
+          ></v-skeleton-loader>
+        </v-col>
+      </v-row>
+      <v-row v-else>
         <v-col
           :key="1"
           cols="12"
@@ -50,5 +62,13 @@
 </template>
 
 <script>
-
+export default {
+  data: () => ({
+    renderLoading: false,
+  }),
+  mounted() {
+    this.renderLoading = true
+    setTimeout(() => this.renderLoading = false, 1000);
+  }
+}
 </script>
